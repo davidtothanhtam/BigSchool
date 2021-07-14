@@ -1,11 +1,13 @@
 ﻿using BigSchool.Models;
 using BigSchool.ViewModels;
-using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
+using System.Globalization;
+using System.Threading;
 using System.Data.Entity;
 
 namespace BigSchool.Controllers
@@ -16,6 +18,10 @@ namespace BigSchool.Controllers
         public CoursesController()
         {
             _dbContext = new ApplicationDbContext();
+            CultureInfo culture = (CultureInfo)CultureInfo.CurrentCulture.Clone();
+            culture.DateTimeFormat.ShortDatePattern = "dd-MMM-yyyy";
+            culture.DateTimeFormat.LongTimePattern = "";
+            Thread.CurrentThread.CurrentCulture = culture;
         }
         // GET: Courses
         [Authorize]
@@ -73,6 +79,23 @@ namespace BigSchool.Controllers
             return View(viewModel);
         }
 
+        public ActionResult Following()
+        {
+            var userId = User.Identity.GetUserId();
+            var followings = _dbContext.Followings
+                .Where(a => a.FolloweeId == userId)
+                .Select(a => a.Follower)
+                .ToList();
+
+            var viewModel = new FollowingViewModel
+            {
+                Followings = followings,
+                ShowAction = User.Identity.IsAuthenticated
+            };
+
+            return View(viewModel);
+        }
+
         [Authorize]
         public ActionResult Mine()
         {
@@ -85,6 +108,33 @@ namespace BigSchool.Controllers
 
             return View(courses);
         }
+
+        public ActionResult FollowingMeList()
+        {
+            var userId = User.Identity.GetUserId();
+            var followings = _dbContext.Followings
+                .Where(a => a.FollowerId == userId)
+                .Select(a => a.Followee)
+                .ToList();
+
+            var viewModel = new FollowingViewModel
+            {
+                Followings = followings,
+                ShowAction = User.Identity.IsAuthenticated
+            };
+
+            return View(viewModel);
+        }
+
+        //public ActionResult FollowNotification()
+        //{
+        //    var viewModel = new FollowNotificationViewModel
+        //    {
+        //        Notifications = _dbContext.FollowingNotifications.ToList()
+        //    };
+        //    return View(viewModel);
+        //}
+
 
         [Authorize]
         public ActionResult Edit(int id)
