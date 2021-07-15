@@ -242,3 +242,4 @@ C:\Users\Tô Thanh Tâm\OneDrive\Máy tính\Thư mục mới\BigSchool\BigSchoo
 C:\Users\Tô Thanh Tâm\OneDrive\Máy tính\Thư mục mới\BigSchool\BigSchool\obj\Debug\BigSchool.dll
 C:\Users\Tô Thanh Tâm\OneDrive\Máy tính\Thư mục mới\BigSchool\BigSchool\obj\Debug\BigSchool.pdb
 C:\Users\Tô Thanh Tâm\OneDrive\Máy tính\Thư mục mới\BigSchool\BigSchool\obj\Debug\BigSchool.Migrations.AddFollowingNotification.resources
+C:\Users\Tô Thanh Tâm\OneDrive\Máy tính\Thư mục mới\BigSchool\BigSchool\obj\Debug\BigSchool.csproj.AssemblyReference.cache
