@@ -229,7 +229,6 @@ C:\Users\Tô Thanh Tâm\OneDrive\Máy tính\Thư mục mới\BigSchool\BigSchoo
 C:\Users\Tô Thanh Tâm\OneDrive\Máy tính\Thư mục mới\BigSchool\BigSchool\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Users\Tô Thanh Tâm\OneDrive\Máy tính\Thư mục mới\BigSchool\BigSchool\bin\Microsoft.Owin.Security.OAuth.xml
 C:\Users\Tô Thanh Tâm\OneDrive\Máy tính\Thư mục mới\BigSchool\BigSchool\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\Tô Thanh Tâm\OneDrive\Máy tính\Thư mục mới\BigSchool\BigSchool\obj\Debug\BigSchool.csproj.AssemblyReference.cache
 C:\Users\Tô Thanh Tâm\OneDrive\Máy tính\Thư mục mới\BigSchool\BigSchool\obj\Debug\BigSchool.Migrations.InitialModel.resources
 C:\Users\Tô Thanh Tâm\OneDrive\Máy tính\Thư mục mới\BigSchool\BigSchool\obj\Debug\BigSchool.Migrations.CreateTableCourse.resources
 C:\Users\Tô Thanh Tâm\OneDrive\Máy tính\Thư mục mới\BigSchool\BigSchool\obj\Debug\BigSchool.Migrations.PopulateCategoryTable.resources

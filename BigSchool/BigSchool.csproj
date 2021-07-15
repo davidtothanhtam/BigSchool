@@ -217,9 +217,9 @@
     <Compile Include="Migrations\202107090114156_AddIsCanceledColumnToCourse.Designer.cs">
       <DependentUpon>202107090114156_AddIsCanceledColumnToCourse.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202107141017346_AddFollowingNotification.cs" />
-    <Compile Include="Migrations\202107141017346_AddFollowingNotification.Designer.cs">
-      <DependentUpon>202107141017346_AddFollowingNotification.cs</DependentUpon>
+    <Compile Include="Migrations\202107152157474_AddFollowingNotification.cs" />
+    <Compile Include="Migrations\202107152157474_AddFollowingNotification.Designer.cs">
+      <DependentUpon>202107152157474_AddFollowingNotification.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -347,8 +347,8 @@
     <EmbeddedResource Include="Migrations\202107090114156_AddIsCanceledColumnToCourse.resx">
       <DependentUpon>202107090114156_AddIsCanceledColumnToCourse.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202107141017346_AddFollowingNotification.resx">
-      <DependentUpon>202107141017346_AddFollowingNotification.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202107152157474_AddFollowingNotification.resx">
+      <DependentUpon>202107152157474_AddFollowingNotification.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

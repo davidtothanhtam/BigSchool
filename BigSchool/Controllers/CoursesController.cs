@@ -47,7 +47,7 @@ namespace BigSchool.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        [Authorize]
+        
          public ActionResult Create()
         {
             var viewModel = new CourseViewModel
@@ -126,14 +126,14 @@ namespace BigSchool.Controllers
             return View(viewModel);
         }
 
-        //public ActionResult FollowNotification()
-        //{
-        //    var viewModel = new FollowNotificationViewModel
-        //    {
-        //        Notifications = _dbContext.FollowingNotifications.ToList()
-        //    };
-        //    return View(viewModel);
-        //}
+        public ActionResult FollowNotification()
+        {
+            var viewModel = new FollowNotificationViewModel
+            {
+                Notifications = _dbContext.FollowingNotifications.ToList()
+            };
+            return View(viewModel);
+        }
 
 
         [Authorize]

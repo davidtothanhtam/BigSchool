@@ -15,18 +15,18 @@ namespace BigSchool.Controllers
 {
     public class FollowingsController : ApiController
     {
-        private readonly ApplicationDbContext _dbConText;
+        private readonly ApplicationDbContext _dbContext;
 
         public FollowingsController()
         {
-            _dbConText = new ApplicationDbContext();
+            _dbContext = new ApplicationDbContext();
         }
 
         [HttpPost]
         public IHttpActionResult Follow(FollowingDto followingDto)
         {
             var userId = User.Identity.GetUserId();
-            if (_dbConText.Followings.Any(f => f.FollowerId == userId && f.FolloweeId == followingDto.FolloweeId))
+            if (_dbContext.Followings.Any(f => f.FollowerId == userId && f.FolloweeId == followingDto.FolloweeId))
                 return BadRequest("Following already exists!");
 
             var following = new Following
@@ -35,44 +35,44 @@ namespace BigSchool.Controllers
                 FolloweeId = followingDto.FolloweeId
             };
 
-            _dbConText.Followings.Add(following);
-            _dbConText.SaveChanges();
+            _dbContext.Followings.Add(following);
+            _dbContext.SaveChanges();
 
-            //following = _dbConText.Followings
-            //    .Where(x => x.FolloweeId == followingDto.FolloweeId && x.FollowerId == userId)
-            //    .Include(x => x.Followee)
-            //    .Include(x => x.Follower).SingleOrDefault();
+            following = _dbContext.Followings
+                .Where(x => x.FolloweeId == followingDto.FolloweeId && x.FollowerId == userId)
+                .Include(x => x.Followee)
+                .Include(x => x.Follower).SingleOrDefault();
 
-            //var followingNotification = new FollowingNotification()
-            //{
-            //    Id = 0,
-            //    Logger = following.Follower.Name + " following " + following.Followee.Name
-            //};
-            //_dbConText.FollowingNotifications.Add(followingNotification);
-            //_dbConText.SaveChanges();
+            var followingNotification = new FollowingNotification()
+            {
+                Id = 0,
+                Logger = following.Follower.Name + " following " + following.Followee.Name
+            };
+            _dbContext.FollowingNotifications.Add(followingNotification);
+            _dbContext.SaveChanges();
 
             return Ok();
         }
 
-        //[HttpDelete]
-        //public IHttpActionResult UnFollow(string followeeId, string followerId)
-        //{
-        //    var follow = _dbConText.Followings
-        //        .Where(x => x.FolloweeId == followeeId && x.FollowerId == followerId)
-        //        .Include(x => x.Followee)
-        //        .Include(x => x.Follower).SingleOrDefault();
+        [HttpDelete]
+        public IHttpActionResult UnFollow(string followeeId, string followerId)
+        {
+            var follow = _dbContext.Followings
+                .Where(x => x.FolloweeId == followeeId && x.FollowerId == followerId)
+                .Include(x => x.Followee)
+                .Include(x => x.Follower).SingleOrDefault();
 
-        //    var followingNotification = new FollowingNotification()
-        //    {
-        //        Id = 0,
-        //        Logger = follow.Follower.Name + " unfollow " + follow.Followee.Name
-        //    };
+            var followingNotification = new FollowingNotification()
+            {
+                Id = 0,
+                Logger = follow.Follower.Name + " unfollow " + follow.Followee.Name
+            };
 
-        //    _dbConText.FollowingNotifications.Add(followingNotification);
+            _dbContext.FollowingNotifications.Add(followingNotification);
 
-        //    _dbConText.Followings.Remove(follow);
-        //    _dbConText.SaveChanges();
-        //    return Ok();
-        //}
+            _dbContext.Followings.Remove(follow);
+            _dbContext.SaveChanges();
+            return Ok();
+        }
     }
 }

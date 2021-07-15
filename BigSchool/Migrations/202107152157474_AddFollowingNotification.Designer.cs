@@ -13,7 +13,7 @@ namespace BigSchool.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "202107141017346_AddFollowingNotification"; }
+            get { return "202107152157474_AddFollowingNotification"; }
         }
         
         string IMigrationMetadata.Source

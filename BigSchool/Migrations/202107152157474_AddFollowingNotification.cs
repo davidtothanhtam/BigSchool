@@ -10,14 +10,14 @@ namespace BigSchool.Migrations
             CreateTable(
                 "dbo.FollowingNotifications",
                 c => new
-                {
-                    Id = c.Int(nullable: false, identity: true),
-                    Logger = c.String(),
-                })
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Logger = c.String(),
+                    })
                 .PrimaryKey(t => t.Id);
-
+            
         }
-
+        
         public override void Down()
         {
             DropTable("dbo.FollowingNotifications");
