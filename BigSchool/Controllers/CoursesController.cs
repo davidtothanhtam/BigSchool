@@ -47,7 +47,7 @@ namespace BigSchool.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        
+        [Authorize]
          public ActionResult Create()
         {
             var viewModel = new CourseViewModel
