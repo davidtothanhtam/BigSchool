@@ -10,7 +10,7 @@ using Microsoft.AspNet.Identity;
 using System.Data.Entity;
 
 // Có sửa bài vào ngày 16/07/2021.
-// Commit tiếp 
+
 
 namespace BigSchool.Controllers
 {
